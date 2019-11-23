@@ -31,14 +31,14 @@ class PythonMeta(object):
 
         self.__obj.metadata = {}
 
-        def declare(mInterface, key, value):
+        def declare(metaInterface, key, value):
             self.declare(ffi.string(key), ffi.string(value))
 
         self.__declare_c = ffi.callback("void(void*, char*, char*)", declare)
 
         meta = ffi.new("MetaGlue*")
         meta.declare = self.__declare_c
-        meta.mInterface = ffi.NULL  # we don't use this anyway
+        meta.metaInterface = ffi.NULL  # we don't use this anyway
 
         self.__meta = meta
 

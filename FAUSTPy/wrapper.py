@@ -177,7 +177,7 @@ class FAUST(object):
         cdefs = "typedef {0} FAUSTFLOAT;".format(faust_float) + """
 
 typedef struct {
-    void *mInterface;
+    void *metaInterface;
     void (*declare)(void* interface, const char* key, const char* value);
 } MetaGlue;
 
@@ -232,7 +232,7 @@ FAUSTFLOAT max(FAUSTFLOAT x, FAUSTFLOAT y) { return x > y ? x : y;};
 
 // the MetaGlue struct that will be wrapped
 typedef struct {
-    void *mInterface;
+    void *metaInterface;
     void (*declare)(void* interface, const char* key, const char* value);
 } MetaGlue;
 
