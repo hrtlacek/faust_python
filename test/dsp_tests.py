@@ -66,7 +66,7 @@ class test_faustdsp_init(unittest.TestCase):
         # whether a FFILibrary object come from a given FFI object or not
         for C, ffi in ffis:
             dsp = PythonDSP(C, ffi, 48000)
-            audio = np.zeros((dsp.num_in, 48e3), dtype=dsp.dtype)
+            audio = np.zeros((dsp.num_in, int(48e3)), dtype=dsp.dtype)
             audio[:, 0] = 1
             self.assertRaises(TypeError, dsp.compute, audio)
 
@@ -107,7 +107,7 @@ class test_faustdsp(unittest.TestCase):
     def test_compute(self):
         "Test the compute() method."
 
-        audio = np.zeros((self.dsp.num_in, 48e3), dtype=self.dsp.dtype)
+        audio = np.zeros((self.dsp.num_in, int(48e3)), dtype=self.dsp.dtype)
         audio[:, 0] = 1
         out = self.dsp.compute(audio)
 
@@ -122,7 +122,7 @@ class test_faustdsp(unittest.TestCase):
         "Test the compute() method with inputs of incorrect dtype."
 
         for dtype in ("float64", "float128"):
-            audio = np.zeros((self.dsp.num_in, 48e3), dtype=dtype)
+            audio = np.zeros((self.dsp.num_in, int(48e3)), dtype=dtype)
             audio[:, 0] = 1
             self.assertRaises(ValueError, self.dsp.compute, audio)
 

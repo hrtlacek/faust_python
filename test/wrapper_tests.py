@@ -72,7 +72,7 @@ class test_faustwrapper(unittest.TestCase):
     def test_compute(self):
         """Test the compute() method."""
 
-        audio = np.zeros((self.dsp2.dsp.num_in, 48e3),
+        audio = np.zeros((self.dsp2.dsp.num_in, int(48e3)),
                          dtype=self.dsp2.dsp.dtype)
         audio[0, 0] = 1
 

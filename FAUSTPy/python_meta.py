@@ -38,6 +38,7 @@ class PythonMeta(object):
 
         meta = ffi.new("MetaGlue*")
         meta.declare = self.__declare_c
+        # meta.metaInterface = ffi.NULL  # we don't use this anyway
         meta.metaInterface = ffi.NULL  # we don't use this anyway
 
         self.__meta = meta

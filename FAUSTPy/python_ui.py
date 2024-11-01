@@ -163,23 +163,23 @@ class PythonUI(object):
 
         # define C callbacks that know the global PythonUI object
         @ffi.callback("void(void*, FAUSTFLOAT*, char*, char*)")
-        def declare(mInterface, zone, key, value):
+        def declare(metaInterface, zone, key, value):
             self.declare(zone, ffi.string(key), ffi.string(value))
 
         @ffi.callback("void(void*, char*)")
-        def openVerticalBox(mInterface, label):
+        def openVerticalBox(metaInterface, label):
             self.openVerticalBox(ffi.string(label))
 
         @ffi.callback("void(void*, char*)")
-        def openHorizontalBox(mInterface, label):
+        def openHorizontalBox(metaInterface, label):
             self.openHorizontalBox(ffi.string(label))
 
         @ffi.callback("void(void*, char*)")
-        def openTabBox(mInterface, label):
+        def openTabBox(metaInterface, label):
             self.openTabBox(ffi.string(label))
 
         @ffi.callback("void(void*)")
-        def closeBox(mInterface):
+        def closeBox(metaInterface):
             self.closeBox()
 
         @ffi.callback("void(void*, char*, FAUSTFLOAT*, FAUSTFLOAT, FAUSTFLOAT, FAUSTFLOAT, FAUSTFLOAT)")

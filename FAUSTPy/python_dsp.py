@@ -65,6 +65,12 @@ class PythonDSP(object):
     fs = property(fget=lambda s: s.__C.getSampleRatemydsp(s.__dsp),
                   doc="The sampling rate of the DSP.")
 
+    # fs_i = property(fget=lambda s: s.__C.getInputRatemydsp(s.__dsp),
+    #               doc="The sampling rate of the DSP input.")
+
+    # fs_o = property(fget=lambda s: s.__C.getOutputRatemydsp(s.__dsp),
+    #               doc="The sampling rate of the DSP output.")
+
     num_in = property(fget=lambda s: s.__C.getNumInputsmydsp(s.__dsp),
                       doc="The number of input channels.")
 

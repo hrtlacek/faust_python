@@ -16,7 +16,7 @@ def init_ffi(faust_dsp="dattorro_notch_cut_regalia.dsp",
     cdefs = "typedef {0} FAUSTFLOAT;".format(faust_float) + """
 
 typedef struct {
-    void *mInterface;
+    void *metaInterface;
     void (*declare)(void* interface, const char* key, const char* value);
 } MetaGlue;
 
@@ -50,8 +50,8 @@ void metadatamydsp(MetaGlue* m);
 int getSampleRatemydsp(mydsp* dsp);
 int getNumInputsmydsp(mydsp* dsp);
 int getNumOutputsmydsp(mydsp* dsp);
-int getInputRatemydsp(mydsp* dsp, int channel);
-int getOutputRatemydsp(mydsp* dsp, int channel);
+//int getInputRatemydsp(mydsp* dsp, int channel);
+//int getOutputRatemydsp(mydsp* dsp, int channel);
 void classInitmydsp(int samplingFreq);
 void instanceInitmydsp(mydsp* dsp, int samplingFreq);
 void initmydsp(mydsp* dsp, int samplingFreq);
@@ -84,7 +84,7 @@ FAUSTFLOAT max(FAUSTFLOAT x, FAUSTFLOAT y) { return x > y ? x : y;};
 
 // the MetaGlue struct that will be wrapped
 typedef struct {
-    void *mInterface;
+    void *metaInterface;
     void (*declare)(void* interface, const char* key, const char* value);
 } MetaGlue;
 
